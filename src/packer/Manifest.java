@@ -11,7 +11,7 @@ import java.util.TreeSet;
  */
 public class Manifest {
     
-    // This tracks the quantity if each product in the manifest
+    // This tracks the quantity of each product in the manifest
     private Map<Product, Integer> quantities;
     // This keeps a list of all products ordered by weight
     private Set<Product> byWeight;
@@ -21,13 +21,11 @@ public class Manifest {
         byWeight = new TreeSet<>(new ProductWeightComparator());
     }
     
-    public void addProduct(Product p) {
-        addProduct(p,1);
-    }
-    
     public void addProduct(Product p, int quantity) {
         if (quantities.containsKey(p)) {
-            quantities.put(p,quantities.get(p)*quantity);
+            int q = quantities.get(p) + quantity;
+            quantities.put(p,q);
+            
         }
         else {
             quantities.put(p,quantity);
@@ -39,12 +37,12 @@ public class Manifest {
     
     public void removeProduct(Product p) {
         if (quantities.containsKey(p) && quantities.get(p) > 0) {
-            quantities.put(p,quantities.get(p)-1);
+            quantities.put(p, quantities.get(p) - 1);
         }
         if (quantities.get(p) == null) {
             quantities.remove(p);
         }
-        if (quantities.containsKey(p)) {
+        if (quantities.get(p) == 0) {
             byWeight.remove(p);
         }
     }
@@ -52,7 +50,7 @@ public class Manifest {
     public double getTotalWeight() {
         double weight = 0;
         for (Product p : quantities.keySet()) {
-            weight = quantities.get(p) * p.getWeight();
+            weight += quantities.get(p) * p.getWeight();
         }
         return weight;
     }
@@ -92,6 +90,19 @@ public class Manifest {
             }
         }
         return false;
+    }
+    
+    public boolean hasHazardousItems() {
+        for (Product p : quantities.keySet()) {
+            if (p.isHazardous()) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public int getProductAmount(Product p){
+        return quantities.get(p);
     }
 }
     

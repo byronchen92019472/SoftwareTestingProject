@@ -24,7 +24,7 @@ public class Manifest {
     public void addProduct(Product p, int quantity) {
         if (quantities.containsKey(p)) {
             int q = quantities.get(p) + quantity;
-            quantities.put(p,q);
+            quantities.put(p, q);
             
         }
         else {

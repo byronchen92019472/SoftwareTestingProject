@@ -21,8 +21,6 @@ public class Box {
     public void addProduct(Product product, int quantity) {
         if (canFit(product,quantity)) {
             contents.addProduct(product, quantity);
-        } else {
-            System.out.println("CANT FIT");
         }
     }
    
@@ -54,12 +52,8 @@ public class Box {
         return contents.getTotalWeight();
     }
     
-    public boolean canFit(Product p) {
-        return p.getWeight() < 20;
-    }
-    
     public boolean canFit(Product p, int quantity) {
-        return (p.getWeight() * quantity) < 20;
+        return (p.getWeight() * quantity) <= 20;
     }
     
     public double remainingCapacity() {

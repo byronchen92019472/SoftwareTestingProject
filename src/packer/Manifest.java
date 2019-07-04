@@ -100,10 +100,7 @@ public class Manifest {
         }
         return false;
     }
-    
-    public int getProductAmount(Product p){
-        return quantities.get(p);
-    }
+   
 }
     
 

@@ -1,8 +1,3 @@
-    /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package packer;
 
 import org.junit.Test;
@@ -58,8 +53,6 @@ public class BoxTest {
         testBox1.addProduct(a2, 2);
         testBox1.addProduct(a3, 1);
         testBox1.addProduct(a4, 2);
-        //assertEquals("Customer\n1 First St\nAplace\nCitadel City\nA111\nApple x 5\nAvocado x 1\nApricot x 2\nAkee x 2\nHEAVY\n", testBox1.toString());
-        //assertEquals(testBox1, testBox1.toString());
         testBox3.addProduct(c1, 0);
         testBox3.addProduct(c1, 1);
         assertEquals("Customer\n1 First St\nAplace\nCitadel City\nA111\nCarrot x 1\n", testBox3.toString());

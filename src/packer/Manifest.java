@@ -21,6 +21,9 @@ public class Manifest {
         byWeight = new TreeSet<>(new ProductWeightComparator());
     }
     
+    /**
+     * Adds the products into the manifest
+     */
     public void addProduct(Product p, int quantity) {
         if (quantities.containsKey(p)) {
             int q = quantities.get(p) + quantity;
@@ -34,7 +37,9 @@ public class Manifest {
             }
         }
     }
-    
+    /**
+     * Removes the product from the manifest
+     */
     public void removeProduct(Product p) {
         if (quantities.containsKey(p) && quantities.get(p) > 0) {
             quantities.put(p, quantities.get(p) - 1);
@@ -47,6 +52,9 @@ public class Manifest {
         }
     }
     
+    /**
+     * Get the total weight of the products in the manifest
+     */
     public double getTotalWeight() {
         double weight = 0;
         for (Product p : quantities.keySet()) {
@@ -55,6 +63,10 @@ public class Manifest {
         return weight;
     }
     
+    /**
+     * Get the heaviest product under a certain weight
+     * @return the heaviest product under a certain weight
+     */
     public Product getHeaviestUnder(double weight) {
         for (Product p : byWeight) {
             if (p.getWeight() <= weight) {
@@ -64,14 +76,26 @@ public class Manifest {
         return null;
     }
     
+    /**
+     * Check if the manifest is empty
+     * @return if the products list is empty
+     */
     public boolean isEmpty() {
         return byWeight.isEmpty();
     }
     
+    /**
+     * Check if the manifest contains the product
+     * @return if the manifest contains the product
+     */
     public boolean containsProduct(Product p) {
         return quantities.containsKey(p) && quantities.get(p) > 0;
     }
     
+    /**
+     * The list of products
+     * @return the list of products in the manifest
+     */
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (Product p : quantities.keySet()) {
@@ -83,6 +107,10 @@ public class Manifest {
         return result.substring(0, result.length()-1);
     }
     
+    /**
+     * Check if any fragile items in the list
+     * @return if there are any fragile items in the list
+     */
     public boolean hasFragileItems() {
         for (Product p : quantities.keySet()) {
             if (p.isFragile()) {
@@ -92,6 +120,10 @@ public class Manifest {
         return false;
     }
     
+    /**
+     * Check if any hazardous items in the list
+     * @return if there are any hazardous items in the list
+     */
     public boolean hasHazardousItems() {
         for (Product p : quantities.keySet()) {
             if (p.isHazardous()) {

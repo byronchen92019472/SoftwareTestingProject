@@ -13,14 +13,26 @@ public class Depot {
         this.address = address;
     }
     
+    /**
+     * the name of the depot
+     * @return the name of the depot
+     */
     public String getName() {
         return name.toString();
     }
     
+    /**
+     * the coordinates of the depot
+     * @return the coordinates of the depot
+     */
     public Coordinates getCoordinates() {
         return this.address.getCoordinates();
     }
     
+    /**
+     * the name of the depot
+     * @return the name of the depot
+     */
     public String toString() {
         return this.getName();
     }

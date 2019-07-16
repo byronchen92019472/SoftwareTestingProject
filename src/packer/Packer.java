@@ -8,7 +8,11 @@ import java.util.List;
  * @author bunta
  */
 public class Packer {
-
+    
+    /**
+     * Pack the products into boxes
+     * @return the packed products of boxes that have been added from the manifest
+     */
     public static List<Box> packProducts(Customer c, Depot d, Manifest m) {
         List<Box> packedBoxes = new ArrayList<>();
         Box b = null;

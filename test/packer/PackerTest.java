@@ -27,7 +27,10 @@ public class PackerTest {
     public static void setUpClass() {
         System.out.println("Testing Packer Class");
     }
-
+    
+    /**
+     * Test of packProducts method, of class Packer.
+     */
     @Test
     public void testPackProducts() {
         Manifest manifest1 = new Manifest();
@@ -40,7 +43,7 @@ public class PackerTest {
         manifest2.addProduct(a2, 5);
         manifest2.addProduct(a3, 3);
         List packer2 = Packer.packProducts(customer1, depot1, manifest2);
-        assertEquals(customer1.getName()+"\n"+address1.toString()+"\nApple x 1\nApricot x 5\nAvocado x 3\nFRAGILE\nHAZARDOUS\nHEAVY\n", packer2.get(0).toString());
+        assertEquals(customer1.getName()+"\n"+address1.toString()+"\nApricot x 5\nAvocado x 3\nApple x 1\nFRAGILE\nHAZARDOUS\nHEAVY\n", packer2.get(0).toString());
         assertEquals(customer1.getName()+"\n"+address1.toString()+"\nApple x 18\nHEAVY\n", packer2.get(1).toString());
         
 

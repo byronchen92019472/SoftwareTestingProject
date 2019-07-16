@@ -38,9 +38,7 @@ public class BoxTest {
 
     @BeforeClass
     public static void setUpClass() {
-        System.out.println("Testing Customer class...");
-        
-        
+        System.out.println("Testing Customer class...");    
     }
     
     /**

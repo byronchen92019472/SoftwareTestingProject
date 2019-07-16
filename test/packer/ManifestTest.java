@@ -20,7 +20,10 @@ public class ManifestTest {
     public static void setUpClass() {
         System.out.println("Testing Manifest Class...");
     }
-
+    
+    /**
+     * Test of addProduct method, of class Manifest.
+     */
     @Test
     public void testAddProduct() {
         Manifest manifest = new Manifest();
@@ -35,7 +38,10 @@ public class ManifestTest {
         manifest2.addProduct(a2, 25);
         assertEquals("Apricot x 45", manifest2.toString());
     }
-
+    
+    /**
+     * Test of removeProduct method, of class Manifest.
+     */
     @Test
     public void testRemoveProduct() {
         System.out.println("removeProduct");
@@ -53,7 +59,10 @@ public class ManifestTest {
         manifest.removeProduct(a1);
         assertEquals("Apple x 0", manifest.toString());
     }
-
+    
+    /**
+     * Test of getTotalWeight method, of class Manifest.
+     */
     @Test
     public void testGetTotalWeight() {
         System.out.println("getTotalWeight");
@@ -69,7 +78,10 @@ public class ManifestTest {
         manifest.addProduct(a3, 10);
         assertEquals(90, manifest.getTotalWeight(), 0);
     }
-
+    
+    /**
+     * Test of toString getHeaviestUnder, of class Manifest.
+     */
     @Test
     public void testGetHeaviestUnder() {
         System.out.println("getHeaviestUnder");
@@ -83,7 +95,10 @@ public class ManifestTest {
         manifest.addProduct(a4, 1);
         assertEquals(a4, manifest.getHeaviestUnder(20));
     }
-
+    
+    /**
+     * Test of isEmpty method, of class Manifest.
+     */
     @Test
     public void testIsEmpty() {
         System.out.println("isEmpty");
@@ -94,7 +109,10 @@ public class ManifestTest {
         manifest.removeProduct(a1);
         assertEquals(true, manifest.isEmpty());
     }
-
+    
+    /**
+     * Test of containsProduct method, of class Manifest.
+     */
     @Test
     public void testContainsProduct() {
         System.out.println("containProduct");
@@ -108,7 +126,10 @@ public class ManifestTest {
         manifest.removeProduct(a1);
         assertEquals(false, manifest.containsProduct(a1));
     }
-
+    
+    /**
+     * Test of hasFragileItems method, of class Manifest.
+     */
     @Test
     public void testHasFragileItems() {
         System.out.println("hasFragileItems");
@@ -121,7 +142,10 @@ public class ManifestTest {
         manifest.addProduct(a4, 1);
         assertEquals(true, manifest.hasFragileItems());
     }
-
+    
+    /**
+     * Test of hasHazardousItems method, of class Manifest.
+     */
     @Test
     public void testHasHazardousItems() {
         System.out.println("hasHazardousItems");

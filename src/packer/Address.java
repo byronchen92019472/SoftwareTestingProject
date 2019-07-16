@@ -10,7 +10,10 @@ public class Address {
     private String city;
     private String postcode;
     private Coordinates coordinates;
-
+    
+    /**
+     * The address of the customer 
+     */
     public Address(String street, String suburb, String city, String postcode, Coordinates coordinates) {
         this.street = street;
         this.suburb = suburb;
@@ -18,7 +21,9 @@ public class Address {
         this.postcode = postcode;
         this.coordinates = coordinates;
     }
-
+    /**
+     * Returns the address formatted
+     */
     public String toString() {
         return 
                 street + "\n" +
@@ -27,6 +32,7 @@ public class Address {
                 postcode;
     }
     /**
+     * The coordinates of the address
      * @return the coordinates
      */
     public Coordinates getCoordinates() {
